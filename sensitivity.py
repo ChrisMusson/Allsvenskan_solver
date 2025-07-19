@@ -211,13 +211,13 @@ def read_sensitivity(options=None):
                 plan = pd.read_csv(filename)
                 # Goalkeepers list of tuples (name, lineup status)
                 goalkeepers += (
-                    plan[(plan["week"] == gw) & (plan["pos"] == "KPR") & (plan["transfer_out"] != 1)][["name", "lineup"]]
+                    plan[(plan["week"] == gw) & (plan["pos"] == "GKP") & (plan["transfer_out"] != 1)][["name", "lineup"]]
                     .apply(lambda x: (x["name"], 1 if x["lineup"] == 1 else 0), axis=1)
                     .to_list()
                 )
                 # Defenders list of tuples (name, lineup status)
                 defenders += (
-                    plan[(plan["week"] == gw) & (plan["pos"] == "FOR") & (plan["transfer_out"] != 1)][["name", "lineup"]]
+                    plan[(plan["week"] == gw) & (plan["pos"] == "DEF") & (plan["transfer_out"] != 1)][["name", "lineup"]]
                     .apply(lambda x: (x["name"], 1 if x["lineup"] == 1 else 0), axis=1)
                     .to_list()
                 )
@@ -229,7 +229,7 @@ def read_sensitivity(options=None):
                 )
                 # Forwards list of tuples (name, lineup status)
                 forwards += (
-                    plan[(plan["week"] == gw) & (plan["pos"] == "ANG") & (plan["transfer_out"] != 1)][["name", "lineup"]]
+                    plan[(plan["week"] == gw) & (plan["pos"] == "FWD") & (plan["transfer_out"] != 1)][["name", "lineup"]]
                     .apply(lambda x: (x["name"], 1 if x["lineup"] == 1 else 0), axis=1)
                     .to_list()
                 )
