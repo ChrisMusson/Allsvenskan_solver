@@ -62,7 +62,7 @@ def generate_team_json(team_id, options):
 
         chips_url = f"{BASE_URL}/entry/{team_id}/history/"
         chips = session.get(chips_url).json()["chips"]
-        lr = [x for x in chips if x["name"] == "freehit"]  # TODO: change if chip name shows differently in API
+        lr = [x for x in chips if x["name"] == "uteam"]
         if lr:
             lr = lr[0]["event"]
         wc_gws = [x["event"] for x in chips if x["name"] == "wildcard"]
